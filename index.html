@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Ben's Portfolio</title>
+    <style>
+      * {
+        font-family: "Latin Modern Math", sans-serif;
+      }
+    </style>
+    <link
+      href="https://fonts.cdnfonts.com/css/latin-modern-math"
+      rel="stylesheet" />
   </head>
   <script>
     // Fetch projects from projects.json and populate the projects section
@@ -70,13 +78,12 @@
             </h1>
             <p class="text-gray-600 mb-4">Toronto, ON, Canada</p>
             <div class="text-left">
-              <h2 class="text-xl font-semibold text-gray-800">
-                I'm a 21 year old student at the University of Toronto
-              </h2>
+              <p class="text-xl font-semibold text-gray-800">
+                I am fourth year student at the University of Toronto
+              </p>
               <ul class="list-disc ml-4 mt-2 space-y-1 text-gray-700">
-                <li>Full Stack Developer</li>
-                <li>Mathematics and Computer Science Student</li>
-                <li>Go Enthusiast - UTSC Go Club President</li>
+                <li>I build full stack applications</li>
+                <li>I enjoy Math, CS, and Stats</li>
               </ul>
             </div>
           </div>
@@ -132,6 +139,30 @@
         </h2>
         <div id="projects">
           <!-- Projects will be loaded here by JavaScript -->
+        </div>
+        <div>
+          <h3
+            class="text-xl font-semibold text-gray-800 border-b pb-2 border-gray-200">
+            Skills
+          </h3>
+          <ul>
+            Languages: Python, JS/TS, HTML, CSS, Rust
+            <br />
+            Frameworks: Next/React, Svelte, Tailwind CSS
+            <br />
+            Libraries: NumPy, Pandas, Matplotlib, PyTorch
+            <br />
+            Tools: Git, Docker, AWS, Firebase, GCP
+        </div>
+      </div>
+      <div class="rounded-lg p-6 md:p-8">
+        <h2
+          class="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-200">
+          Hobbies
+        </h2>
+        <div id="hobbies">
+          I play Go and I am currently UTSC Go Club President. I also enjoy rock
+          climbing and cooking on my free time.
         </div>
       </div>
     </div>
