@@ -1,0 +1,42 @@
+{
+  "projects": [
+    {
+      "name": "Ajv JSON Logic",
+      "techStack": "JavaScript",
+      "link": "https://www.npmjs.com/package/ajv-json-logic",
+      "description": [
+        "Developed a JSON validator extension enabling conditional schemas in JSON Schema, ensuring accurate validation",
+        "Integrated logic-driven validation into a form builder, letting non-technical users define complex custom rules",
+        "Published as an open-source npm package, achieving 500+ downloads"
+      ]
+    },
+    {
+      "name": "Picnic - Convex Resend Hackathon",
+      "techStack": "TypeScript, React",
+      "link": "https://github.com/Benjamin-Yu-Sheng-Chang/Picnic",
+      "description": [
+        "Implemented a custom OTP solution in Discord to authenticate users using ConvexDB, Resend, and Discord.js",
+        "Designed a monorepo architecture for easy setup of Discord backend and scheduler backend with Hono",
+        "Built a draggable, intuitive frontend interface using Vite, React, and TailwindCSS, enhancing user experience"
+      ]
+    },
+    {
+      "name": "MTA Club Website",
+      "techStack": "Next/React",
+      "link": "https://www.mtautsc.com/",
+      "description": [
+        "Developed an event page featuring a rich text editor and built-in form validation for a smooth user experience",
+        "Designed architecture separating admin and client functionality, ensuring easier maintainability"
+      ]
+    },
+    {
+      "name": "Predictive Modeling for Crypto Horse Racing",
+      "techStack": "Python/PyTorch/imblearn",
+      "description": [
+        "Built linear regression and neural network models with feature engineering and data balancing to predict Zed Run race winners (R^2 = 0.67)",
+        "Applied SMOTE to balance winner–loser classes and trained a neural network model leveraging horse history, traits, and in-game metrics to predict race outcomes",
+        "Created a Tampermonkey JS plugin to identify underrated horses using model-driven insights"
+      ]
+    }
+  ]
+}

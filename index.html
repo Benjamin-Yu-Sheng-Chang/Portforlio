@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Ben's Portfolio</title>
+  </head>
+  <script>
+    // Fetch projects from projects.json and populate the projects section
+    fetch("projects.json")
+      .then(response => response.json())
+      .then(data => {
+        const projectsContainer = document.getElementById("projects");
+        projectsContainer.innerHTML = ""; // Clear the container
+
+        data.projects.forEach(project => {
+          const projectElement = document.createElement("div");
+          projectElement.className = "mb-8 p-6 bg-white rounded-lg";
+
+          // Create project header with name and tech stack
+          const header = document.createElement("div");
+          header.className =
+            "flex flex-col md:flex-row justify-between items-start md:items-center mb-2";
+
+          const titleLink = project.link
+            ? `<a href="${project.link}" class="text-xl font-bold hover:underline" target="_blank">${project.name}</a>`
+            : `<span class="text-xl font-bold text-gray-900">${project.name}</span>`;
+
+          header.innerHTML = `
+            ${titleLink}
+            <span class="text-sm text-gray-500 mt-1 md:mt-0">${project.techStack}</span>
+          `;
+
+          // Create description list
+          const descriptionList = document.createElement("ul");
+          descriptionList.className = "list-disc space-y-2";
+
+          project.description.forEach(desc => {
+            const item = document.createElement("li");
+            item.className = "text-gray-700";
+            item.innerHTML = desc;
+            descriptionList.appendChild(item);
+          });
+
+          // Assemble the project element
+          projectElement.appendChild(header);
+          projectElement.appendChild(descriptionList);
+
+          // Add to container
+          projectsContainer.appendChild(projectElement);
+        });
+      })
+      .catch(error => {
+        console.error("Error loading projects:", error);
+        const projectsContainer = document.getElementById("projects");
+        projectsContainer.innerHTML =
+          '<p class="text-red-500">Failed to load projects. Please try again later.</p>';
+      });
+  </script>
+  <body class="min-h-screen p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+      <!-- Header Section -->
+      <div class="rounded-lg p-6 md:p-8 mb-6">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
+          <div class="text-center md:text-left">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Benjamin Yu Sheng Chang(張祐慎)
+            </h1>
+            <p class="text-gray-600 mb-4">Toronto, ON, Canada</p>
+            <div class="text-left">
+              <h2 class="text-xl font-semibold text-gray-800">
+                I'm a 21 year old student at the University of Toronto
+              </h2>
+              <ul class="list-disc ml-4 mt-2 space-y-1 text-gray-700">
+                <li>Full Stack Developer</li>
+                <li>Mathematics and Computer Science Student</li>
+                <li>Go Enthusiast - UTSC Go Club President</li>
+              </ul>
+            </div>
+          </div>
+          <img
+            class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-blue-100"
+            src="/pfp.png"
+            alt="Profile Picture" />
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="flex justify-center space-x-6">
+        <a
+          href="https://github.com/benjamin-yu-sheng-chang"
+          class="text-gray-600 hover:text-gray-900 transition-colors">
+          <span class="sr-only">GitHub</span>
+          <svg
+            class="h-8 w-8"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path
+              fill-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.699 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a
+          href="https://linkedin.com/in/benji-chang"
+          class="text-gray-600 hover:text-blue-600 transition-colors">
+          <span class="sr-only">LinkedIn</span>
+          <svg
+            class="h-8 w-8"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+        </a>
+        <a
+          href="resume.pdf"
+          class="flex items-end h-8 text-2xl font-bold text-gray-600 transition-colors hover:underline">
+          Resume
+        </a>
+      </div>
+
+      <!-- Projects Section -->
+      <div class="rounded-lg p-6 md:p-8">
+        <h2
+          class="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-200">
+          Projects
+        </h2>
+        <div id="projects">
+          <!-- Projects will be loaded here by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
