@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>notes — Ben's Portfolio</title>
+    <link href="https://fonts.cdnfonts.com/css/latin-modern-math" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a href="index.html">home</a>
+        <a href="notes.html" class="active">notes</a>
+        <a href="projects.html">projects</a>
+        <a href="blog.html">blog</a>
+        <a href="resume.pdf">resume</a>
+      </nav>
+
+      <h1>notes</h1>
+
+      <ul class="notes" id="notes">
+        <!-- Notes will be loaded here by JavaScript -->
+      </ul>
+    </div>
+
+    <footer>
+      <div class="container">ben-chang.com</div>
+    </footer>
+
+    <script>
+      fetch("notes-index.json")
+        .then(response => response.json())
+        .then(data => {
+          const list = document.getElementById("notes")
+          list.innerHTML = data.notes
+            .map(
+              note => `<li>
+                  <a href="notes/${encodeURIComponent(note.name)}">${note.name}</a>
+                  <span class="date">${note.date}</span>
+                </li>`,
+            )
+            .join("")
+        })
+        .catch(error => {
+          console.error("Error loading notes:", error)
+          document.getElementById("notes").innerHTML = `<li class="muted">failed to load notes</li>`
+        })
+    </script>
+  </body>
+</html>

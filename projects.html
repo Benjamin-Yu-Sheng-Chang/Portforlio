@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>projects — Ben's Portfolio</title>
+    <link
+      href="https://fonts.cdnfonts.com/css/latin-modern-math"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a href="index.html">home</a>
+        <a href="notes.html">notes</a>
+        <a href="projects.html" class="active">projects</a>
+        <a href="blog.html">blog</a>
+        <a href="resume.pdf">resume</a>
+      </nav>
+
+      <h1>projects</h1>
+      <div id="projects">
+        <!-- Projects will be loaded here by JavaScript -->
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">ben-chang.com</div>
+    </footer>
+
+    <script>
+      // Fetch projects from projects.json and populate the projects section
+      fetch("projects.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const projectsContainer = document.getElementById("projects");
+          const fragments = data.projects.map((project) => {
+            const title = project.link
+              ? `<a href="${project.link}" target="_blank">${project.name}</a>`
+              : project.name;
+            const stack = project.techStack
+              ? `<span class="meta">${project.techStack}</span>`
+              : "";
+            const bullets = project.description
+              .map((desc) => `<li>${desc}</li>`)
+              .join("");
+            return `<div class="project">
+              <div><span class="name">${title}</span>${stack}</div>
+              <ul>${bullets}</ul>
+            </div>`;
+          });
+          projectsContainer.innerHTML = fragments.join("");
+        })
+        .catch((error) => {
+          console.error("Error loading projects:", error);
+          document.getElementById(
+            "projects"
+          ).innerHTML = `<p class="muted">failed to load projects</p>`;
+        });
+    </script>
+  </body>
+</html>

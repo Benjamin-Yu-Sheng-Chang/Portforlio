@@ -1,0 +1,181 @@
+:root {
+  --text: #1a1a1a;
+  --muted: #707070;
+  --line: #e4e4e4;
+  --bg: #fcfcfc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Latin Modern Math", "Georgia", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 24px 96px;
+}
+
+/* ---------- nav ---------- */
+nav {
+  display: flex;
+  gap: 24px;
+  padding: 28px 0 0;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+nav a.active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ---------- typography ---------- */
+h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 40px 0 2px;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 6px;
+  margin: 52px 0 18px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: var(--text);
+}
+
+ul {
+  margin: 10px 0;
+  padding-left: 22px;
+}
+
+li {
+  margin: 4px 0;
+}
+
+/* ---------- home ---------- */
+header.intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+header.intro img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 44px;
+  flex-shrink: 0;
+}
+
+header.intro .who {
+  flex: 1;
+}
+
+.socials {
+  margin-top: 18px;
+  font-size: 15px;
+}
+
+.socials a {
+  margin-right: 14px;
+}
+
+/* ---------- projects (on home) ---------- */
+.project {
+  margin: 0 0 26px;
+}
+
+.project:last-child {
+  margin-bottom: 0;
+}
+
+.project .name {
+  font-weight: 600;
+}
+
+.project .meta {
+  color: var(--muted);
+  font-size: 14.5px;
+  margin-left: 8px;
+}
+
+.project p {
+  margin: 6px 0 0;
+}
+
+.project ul {
+  margin: 6px 0 0;
+}
+
+/* ---------- notes list ---------- */
+.notes {
+  list-style: none;
+  padding: 0;
+}
+
+.notes li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 0;
+}
+
+.notes .date {
+  color: var(--muted);
+  font-size: 14.5px;
+  white-space: nowrap;
+}
+
+footer {
+  margin-top: 72px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
