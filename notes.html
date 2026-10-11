@@ -25,7 +25,10 @@
     </div>
 
     <script>
-      fetch("notes-index.json")
+      // Always revalidate: a freshly pushed notes/ file should show up on the
+      // next page load, not after the browser's cached copy of the JSON expires.
+      // (The GitHub Pages edge itself can still serve a copy up to ~10 min old.)
+      fetch(`notes-index.json?v=${Date.now()}`, { cache: "no-store" })
         .then(response => response.json())
         .then(data => {
           const list = document.getElementById("notes")

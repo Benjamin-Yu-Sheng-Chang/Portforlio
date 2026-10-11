@@ -24,8 +24,9 @@
     </div>
 
     <script>
-      // Fetch projects from projects.json and populate the projects section
-      fetch("projects.json")
+      // Fetch projects from projects.json and populate the projects section.
+      // no-store + cache-buster so an updated projects.json shows up immediately.
+      fetch(`projects.json?v=${Date.now()}`, { cache: "no-store" })
         .then(response => response.json())
         .then(data => {
           const projectsContainer = document.getElementById("projects")
